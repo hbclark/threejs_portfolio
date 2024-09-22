@@ -9,6 +9,8 @@ import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "@/constants";
 import Target from "./Target";
 import ReactLogo from "./ReactLogo";
+import Cube from "./Cube";
+import Rings from "./Rings";
 
 const Hero = () => {
   // const x = useControls("HackerRoom", {
@@ -76,6 +78,7 @@ const Hero = () => {
         <Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 20]} />
+            {/* <axesHelper args={[5]} /> */}
 
             <HackerRoom
               // scale={0.07}
@@ -90,6 +93,10 @@ const Hero = () => {
             <group>
               <Target position={sizes.targetPosition} />
               <ReactLogo position={sizes.reactLogoPosition} />
+              <Cube position={sizes.cubePosition as [number, number, number]} />
+              <Rings
+                position={sizes.ringPosition as [number, number, number]}
+              />
             </group>
 
             <ambientLight intensity={1} />
