@@ -92,7 +92,9 @@ const Hero = () => {
             />
             <group>
               <Target position={sizes.targetPosition} />
-              <ReactLogo position={sizes.reactLogoPosition} />
+              <ReactLogo
+                position={sizes.reactLogoPosition as [number, number, number]}
+              />
               <Cube position={sizes.cubePosition as [number, number, number]} />
               <Rings
                 position={sizes.ringPosition as [number, number, number]}
