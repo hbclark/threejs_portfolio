@@ -26,7 +26,7 @@ const Cube = ({ ...props }) => {
           repeat: -1,
           repeatDelay: 0.5,
         })
-        .to(cubeRef.current!.rotation, {
+        .to(cubeRef.current.rotation, {
           // Add non-null assertion
           y: hovered ? "+=2" : `+=${Math.PI * 2}`,
           x: hovered ? "+=2" : `-=${Math.PI * 2}`,

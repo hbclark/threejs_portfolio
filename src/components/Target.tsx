@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react";
 import * as THREE from "three";
 
 interface TargetProps {
-  position: number[];
+  position: THREE.Vector3;
   // other props...
 }
 
@@ -32,7 +32,7 @@ const Target: React.FC<TargetProps> = (props) => {
       ref={targetRef}
       {...props}
       rotation={[0, Math.PI / 5, 0]}
-      position={new THREE.Vector3(...props.position)}
+      position={props.position}
     >
       <primitive object={scene} />
     </mesh>

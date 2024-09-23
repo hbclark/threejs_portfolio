@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { useCallback, useRef } from "react";
 import * as THREE from "three";
 
-const Rings = ({ position }: { position: [number, number, number] }) => {
+const Rings = ({ position }: { position: THREE.Vector3 }) => {
   const refList = useRef<THREE.Mesh[]>([]);
   const getRef = useCallback((mesh: THREE.Mesh | null) => {
     if (mesh && !refList.current.includes(mesh)) {
@@ -19,7 +19,7 @@ const Rings = ({ position }: { position: [number, number, number] }) => {
       if (refList.current.length === 0) return;
 
       refList.current.forEach((r) => {
-        r.position.set(position[0], position[1], position[2]);
+        r.position.set(position.x, position.y, position.z);
       });
 
       gsap
@@ -40,7 +40,7 @@ const Rings = ({ position }: { position: [number, number, number] }) => {
         );
     },
     {
-      dependencies: position,
+      dependencies: [position],
     }
   );
 

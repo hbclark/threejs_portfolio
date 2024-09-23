@@ -20,7 +20,7 @@ const CanvasLoader = () => {
     >
       {/* <span className="canvas-loader" /> */}
 
-      {active && `${progress}% loaded`}
+      {active && `${progress.toFixed(2)}% loaded`}
     </Html>
   );
 };
